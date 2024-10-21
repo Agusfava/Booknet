@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booknet</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .header {
+    background-color: #a56448;
+    }
+
+    .old-standard-tt-regular {
+    font-family: "Old Standard TT", serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+    .old-standard-tt-regular-italic {
+    font-family: "Old Standard TT", serif;
+    font-weight: 400;
+    font-style: italic;
+    }
+
+    .libro-contenedor{
+    background-color:#bfa488;
+    }
+
+    .back{
+      background-color: #d8cdc0;
+    }
+
+    #hero {
+      background-image:url(biblio.jpg);
+      height: 350px;
+      background-size: cover;
+    }
+
+
+  </style>
+</head>
+<body class="back">
+    <header class="header p-4 text-black relative">
+      <div class="flex justify-between items-center max-w-6xl mx-auto">
+          <img src="Libre.png" class="w-15 h-14" alt="Logo Libre" />
+          <h1 class="text-5xl font-bold old-standard-tt-regular">Booknet</h1>
+          <button id="btn-carrito" class="p-0 bg-transparent border-none cursor-pointer">
+              <img src="carrito.png" alt="Carrito" class="w-8 h-8" />
+          </button>
+      </div>
+    </header>
+
+      <!-- Modal del Carrito -->
+      <div id="modal-carrito" class="fixed inset-0 hidden bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-11/12 max-w-3xl">
+          <h2 class="text-2xl mb-4">Carrito de Compras</h2>
+          <table class="table-auto w-full">
+            <thead>
+              <tr class="bg-gray-200 text-gray-700">
+                <th class="px-4 py-2">Producto</th>
+                <th class="px-4 py-2">Nombre</th>
+                <th class="px-4 py-2">Precio</th>
+                <th class="px-4 py-2">Cantidad</th>
+                <th class="px-4 py-2">Total</th>
+                <th class="px-4 py-2">Eliminar</th>
+              </tr>
+            </thead>
+            <tbody id="carrito-body">
+              <!-- Los productos añadidos aparecerán aquí -->
+            </tbody>
+          </table>
+          <div class="flex justify-between my-4">
+            <p id="total-general" class="text-xl font-semibold">Total: $0</p>
+            <button id="vaciar-carrito" class="bg-red-600 text-white px-4 py-2 rounded">Vaciar Carrito</button>
+          </div>
+          <button id="cerrar-modal" class="mt-4 bg-gray-600 text-white px-4 py-2 rounded">Cerrar</button>
+        </div>
+    </header>
+  </div>
+  <div id="hero"></div>
+  <!-- Productos -->
+  <main class="container mx-auto my-8 ">
+    <div class="grid grid-cols-4 gap-8">
+      <!-- Producto 1 -->
+      <div class="border rounded-lg p-4 libro-contenedor">
+        <img src="Bajo La Misma Estrella - John Green.png " alt="Libro 1" class="w-full h-100 object-cover mb-4">
+        <h2 class="text-xl font-semibold mb-2">Bajo la misma Estrella</h2>
+        <p class="text-black old-standard-tt-regular-italic mb-4">Hazel tiene dieciséis años, está enferma de cáncer desde pequeña y sobrevive gracias a un pequeño milagro médico y a la bombona de oxígeno que la acompaña todo el tiempo. Un día, Hazel conoce a Gus, que ya ha superado la enfermedad.</p>
+        <p class="text-black  old-standard-tt-regular-italic mb-4">Precio: $22.000</p>
+        <button class="agregar-carrito header text-white px-4 py-2 rounded " data-id="1" data-nombre="Bajo la misma Estrella" data-precio="22000" data-img="Bajo La Misma Estrella - John Green.png">Agregar al Carrito</button>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="border rounded-lg p-4  libro-contenedor">
+        <img src="Dorian.png" alt="Libro 2" class="w-full h-100 object-cover mb-4">
+        <h2 class="text-xl font-semibold mb-2">El Retrato de Dorian Gray</h2>
+        <p class="text-black old-standard-tt-regular-italic  mb-4">El joven Dorian desea permanecer por siempre joven y bello, y que, a cambio, su retrato sea el que envejezca. Seducido por un aristócrata cínico, Dorian disfruta del placer y los excesos,
+             lleva a otras personas a la perdición y no duda en cometer todos los "pecados" posibles</p>
+        <p class="text-black old-standard-tt-regular-italic mb-4">Precio: $14.500</p>
+        <button class="agregar-carrito header text-white px-4 py-2 rounded" data-id="2" data-nombre="El Retrato de Dorian Gray" data-precio="14500" data-img="Dorian.png">Agregar al Carrito</button>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="border rounded-lg p-4  libro-contenedor">
+        <img src="El Conde de Montecristo.png" alt="Libro 3" class="w-full h-100 object-cover mb-4">
+        <h2 class="text-xl font-semibold mb-2">El Conde de Montecristo</h2>
+        <p class="text-black old-standard-tt-regular-italic mb-4">Edmond Dantés es un joven marinero, honrado y cándido, que lleva una existencia tranquila. Quiere casarse con la hermosa Mercedes, pero su vida se verá arruinada cuando su mejor amigo, Ferdinand, deseoso de conquistar a su prometida, le traicione vilmente.</p>
+        <p class="text-black old-standard-tt-regular-italic mb-4">Precio: $56.000</p>
+        <button class="agregar-carrito header text-white px-4 py-2 rounded" data-id="3" data-nombre="El conde de Montecristo" data-precio="56000" data-img="El Conde de Montecristo.png">Agregar al Carrito</button>
+      </div>
+
+      <!-- Producto 4 -->
+      <div class="border rounded-lg p-4  libro-contenedor">
+        <img src="Percy.png" alt="Libro 4" class="w-full h-100 object-cover mb-4">
+        <h2 class="text-xl font-semibold mb-2">Percy Jackson y el ladron del rayo</h2>
+        <p class="text-black old-standard-tt-regular-italic mb-4">Cuenta las aventuras de un chico actual de doce años, Percy Jackson, cuando descubre que es un semidiós; hijo de una mortal y de un dios griego. Percy y sus amigos realizan una búsqueda 
+            para prevenir una guerra apocalíptica entre dos de los más grandes dioses.</p>
+        <p class="text-black old-standard-tt-regular-italic mb-4">Precio: $25.000</p>
+        <button class="agregar-carrito header text-white px-4 py-2 rounded" data-id="4" data-nombre="Percy Jackson y el ladrón del rayo" data-precio="25000" data-img="Percy.png">Agregar al Carrito</button>
+      </div>
+
+      <!-- Producto 5 -->
+      <div class="border rounded-lg p-4  libro-contenedor">
+        <img src="Harry.png" alt="Libro 4" class="w-full h-100 object-cover mb-4">
+        <h2 class="text-xl font-semibold mb-2">Harry Potter y la piedra filosofal</h2>
+        <p class="text-black old-standard-tt-regular-italic mb-4">El día de su cumpleaños, Harry Potter descubre que es hijo de dos conocidos hechiceros, de los que ha heredado poderes mágicos. Debe asistir a una famosa escuela de magia y hechicería,
+             donde entabla una amistad con dos jóvenes que se convertirán en sus compañeros de aventura. </p>
+        <p class="text-black old-standard-tt-regular-italic mb-4">Precio: $38.000</p>
+        <button class="agregar-carrito header text-white px-4 py-2 rounded" data-id="5" data-nombre="Harry Potter y la piedra filosofal" data-precio="38000" data-img="Harry.png">Agregar al Carrito</button>
+      </div>
+
+      <!-- Producto 6 -->
+      <div class="border rounded-lg p-4  libro-contenedor">
+        <img src="mujer.png" alt="Libro 4" class="w-full h-100 object-cover mb-4">
+        <h2 class="text-xl font-semibold mb-2">Mujercitas</h2>
+        <p class="text-black old-standard-tt-regular-italic mb-4">Refleja la vida de cuatro hermanas adolescentes de la época: Meg, Jo, Beth y Amy, intentando entenderse a sí mismas y lo que significa crecer siendo mujer.</p>
+        <p class="text-black old-standard-tt-regular-italic mb-4">Precio: $15.000</p>
+        <button class="agregar-carrito header text-white px-4 py-2 rounded" data-id="6" data-nombre="Mujercitas" data-precio="15000" data-img="mujer.png">Agregar al Carrito</button>
+      </div>
+
+      <!-- Producto 7 -->
+      <div class="border rounded-lg p-4  libro-contenedor">
+        <img src="Diver.jpg" alt="Libro 4" class="w-full h-100 object-cover mb-4">
+        <h2 class="text-xl font-semibold mb-2">Divergente</h2>
+        <p class="text-black old-standard-tt-regular-italic mb-4">Este sigue la vida de Beatrice Prior, una chica de 16 años, quien vive en una sociedad creada al comienzo de la gran paz que 
+            ha decidido agrupar a las personas en cinco facciones que tratan de erradicar los males que les llevaron a la guerra.</p>
+        <p class="text-black old-standard-tt-regular-italic mb-4">Precio: $35.000</p>
+        <button class="agregar-carrito header text-white px-4 py-2 rounded" data-id="7" data-nombre="Divergente" data-precio="35000" data-img="Diver.jpg">Agregar al Carrito</button>
+      </div>
+
+      <!-- Producto 8 -->
+      <div class="border rounded-lg p-4  libro-contenedor">
+        <img src="Agatha.png" alt="Libro 4" class="w-full h-100 object-cover mb-4">
+        <h2 class="text-xl font-semibold mb-2">La casa torcida</h2>
+        <p class="text-black old-standard-tt-regular-italic mb-4">Tres generaciones de la familia del multimillonario griego Aristide Leonides conviven en Inglaterra bajo el mismo techo: una curiosa mansión de estructura inclinada. Sin embargo, 
+            la paz hogareña se trunca cuando Aristide es envenenado. Las sospechas recaen sobre todos los miembros de la familia.</p>
+        <p class="text-black old-standard-tt-regular-italic mb-4">Precio: $28.000</p>
+        <button class="agregar-carrito header text-white px-4 py-2 rounded" data-id="8" data-nombre="La casa torcida" data-precio="28000" data-img="Agatha.png">Agregar al Carrito</button>
+      </div>
+    </div>
+
+    <footer class=" text-center py-6">
+      <p class="text-gray-500"> Agustina Rocio Da Via Fava - 5°C - IRESM </p>
+  </footer>
+
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
